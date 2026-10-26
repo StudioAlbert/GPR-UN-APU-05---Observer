@@ -849,6 +849,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gemme 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3734708835454448829, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1959174341}
     - target: {fileID: 8531367904486448151, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -922,6 +926,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gemme 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3734708835454448829, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1959174341}
     - target: {fileID: 8531367904486448151, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -1132,6 +1140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gemme 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3734708835454448829, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1959174341}
     - target: {fileID: 8531367904486448151, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -1342,7 +1354,6 @@ GameObject:
   - component: {fileID: 1215592650}
   - component: {fileID: 1215592653}
   - component: {fileID: 1215592652}
-  - component: {fileID: 1215592651}
   m_Layer: 0
   m_Name: Compteur
   m_TagString: Untagged
@@ -1369,20 +1380,6 @@ RectTransform:
   m_AnchoredPosition: {x: 40, y: -30}
   m_SizeDelta: {x: 800, y: 70}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1215592651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215592649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47d62def5f0714a4cbca00f654eb9631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CounterLabel
-  remainingChannel: {fileID: 11400000, guid: 79978bd306d42dc49a7dfa181a659a4c, type: 2}
-  label: {fileID: 1215592652}
 --- !u!114 &1215592652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,6 +1777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gemme 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3734708835454448829, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1959174341}
     - target: {fileID: 8531367904486448151, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1991,6 +1992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gemme 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3734708835454448829, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1959174341}
     - target: {fileID: 8531367904486448151, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -2101,7 +2106,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1831867177}
   - component: {fileID: 1831867176}
-  - component: {fileID: 1831867175}
   m_Layer: 0
   m_Name: Son
   m_TagString: Untagged
@@ -2109,20 +2113,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1831867175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831867174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8812664150315294baeb5421645d2370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  itemCollectedChannel: {fileID: 11400000, guid: 5a9be047e03c7eb41aedcbb3e10fa520, type: 2}
-  pickupClip: {fileID: 8300000, guid: e91495d51e89c4b438c5bbca9b0f6b43, type: 3}
 --- !u!82 &1831867176
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2499,23 +2489,8 @@ MonoBehaviour:
   - {fileID: 1579804112}
   - {fileID: 806354021}
   - {fileID: 1708146214}
-  remainingChannel: {fileID: 11400000, guid: 79978bd306d42dc49a7dfa181a659a4c, type: 2}
-  itemCollectedChannel: {fileID: 11400000, guid: 5a9be047e03c7eb41aedcbb3e10fa520, type: 2}
-  allCollected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2074822787}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+  label: {fileID: 1215592652}
+  panneauFin: {fileID: 2074822787}
 --- !u!4 &1959174342
 Transform:
   m_ObjectHideFlags: 0

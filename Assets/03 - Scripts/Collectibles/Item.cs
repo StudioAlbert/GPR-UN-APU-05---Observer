@@ -1,18 +1,17 @@
-using System;
 using UnityEngine;
 
-// Le sujet. Il annonce qu'on l'a ramassé, et c'est tout ce qu'il fait :
-// il ne connaît ni le compteur, ni le son, ni le panneau de fin.
+// Version couplée : l'item tient une référence sur le gestionnaire et l'appelle
+// lui-même. Ça marche, et c'est précisément ce qu'on va démonter.
 [RequireComponent(typeof(Collider2D))]
 public class Item : MonoBehaviour
 {
-    public event Action<Item> Collected;
+    [SerializeField] private ItemManager manager;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
-        Collected?.Invoke(this);
+        manager.ItemRamasse(this);
         gameObject.SetActive(false);
     }
 }

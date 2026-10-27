@@ -18,8 +18,8 @@ différents, un par étage, choisis chacun pour ce qu'il sait faire.
 ```
 Item ──event Action──▶ ItemManager ──VoidEventChannelSO──▶ SoundManager
                         │  │        └─IntEventChannelSO──▶ CounterLabel
-                        │  ├─ UnityEvent allCollected ───▶ PanneauFin.SetActive(true)
-                        │  └─ UnityEvent reset ──────────▶ PanneauFin.SetActive(false)
+                        │  ├─ UnityEvent allCollected ───▶ EndPanel.SetActive(true)
+                        │  └─ UnityEvent reset ──────────▶ EndPanel.SetActive(false)
                         ▲
       ResetButton ──────┘  appel direct de ResetItems()
 ```
@@ -30,7 +30,7 @@ Item ──event Action──▶ ItemManager ──VoidEventChannelSO──▶ S
    `GemmesRestantes`. Le son et le compteur les écoutent sans que personne ne les ait
    branchés l'un à l'autre : c'est ce qui permet d'ajouter un système après coup.
 3. **`UnityEvent`** — la dernière gemme déclenche `allCollected`, câblé **dans l'Inspector**
-   sur `PanneauFin.SetActive(true)`. Aucun script n'a été écrit pour le panneau de fin.
+   sur `EndPanel.SetActive(true)`. Aucun script n'a été écrit pour le panneau de fin.
 
 Les assets de canal sont dans `Assets/09 - Events/`.
 

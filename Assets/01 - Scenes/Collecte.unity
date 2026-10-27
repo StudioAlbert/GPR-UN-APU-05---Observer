@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 17293013}
   - component: {fileID: 17293012}
   m_Layer: 0
-  m_Name: Joueur
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 134804458}
   - component: {fileID: 134804459}
   m_Layer: 0
-  m_Name: Drapeau
+  m_Name: Flag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 342352977}
   - component: {fileID: 342352976}
   m_Layer: 0
-  m_Name: Lumiere globale
+  m_Name: GlobalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 347975489}
   - component: {fileID: 347975488}
   m_Layer: 8
-  m_Name: Plateforme droite
+  m_Name: PlatformRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 397737647}
   - component: {fileID: 397737646}
   m_Layer: 8
-  m_Name: Plateforme gauche
+  m_Name: PlatformLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 574896605}
   - component: {fileID: 574896606}
   m_Layer: 0
-  m_Name: Nuage 3
+  m_Name: Cloud3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1076,7 +1076,7 @@ GameObject:
   m_Component:
   - component: {fileID: 616066344}
   m_Layer: 0
-  m_Name: Decor
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1113,7 +1113,7 @@ GameObject:
   - component: {fileID: 618522934}
   - component: {fileID: 618522935}
   m_Layer: 0
-  m_Name: Nuage 2
+  m_Name: Cloud2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1282,7 +1282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 665270822}
   m_Layer: 0
-  m_Name: Gemmes
+  m_Name: Gems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1318,7 +1318,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2883738952332750113, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_Name
-      value: Gemme 2
+      value: Gem2
       objectReference: {fileID: 0}
     - target: {fileID: 8531367904486448151, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1391,7 +1391,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2883738952332750113, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_Name
-      value: Gemme 1
+      value: Gem1
       objectReference: {fileID: 0}
     - target: {fileID: 8531367904486448151, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1464,7 +1464,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2883738952332750113, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_Name
-      value: Gemme 4
+      value: Gem4
       objectReference: {fileID: 0}
     - target: {fileID: 8531367904486448151, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1538,7 +1538,7 @@ GameObject:
   - component: {fileID: 1139246087}
   - component: {fileID: 1139246088}
   m_Layer: 0
-  m_Name: Coffre
+  m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1630,7 +1630,7 @@ GameObject:
   - component: {fileID: 1558919473}
   - component: {fileID: 1558919472}
   m_Layer: 8
-  m_Name: Sol
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1766,7 +1766,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2883738952332750113, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_Name
-      value: Gemme 3
+      value: Gem3
       objectReference: {fileID: 0}
     - target: {fileID: 8531367904486448151, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1839,7 +1839,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2883738952332750113, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_Name
-      value: Gemme 5
+      value: Gem5
       objectReference: {fileID: 0}
     - target: {fileID: 8531367904486448151, guid: e0fbc5be2fceaff4c9f5e1a9430b2b77, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1913,7 +1913,7 @@ GameObject:
   - component: {fileID: 1723179566}
   - component: {fileID: 1723179565}
   m_Layer: 0
-  m_Name: PanneauFin
+  m_Name: EndPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1968,7 +1968,7 @@ GameObject:
   - component: {fileID: 1803928061}
   - component: {fileID: 1803928062}
   m_Layer: 0
-  m_Name: Nuage 1
+  m_Name: Cloud1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2058,7 +2058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816351991}
   m_Layer: 0
-  m_Name: Niveau
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2094,7 +2094,7 @@ GameObject:
   - component: {fileID: 1831867176}
   - component: {fileID: 1831867175}
   m_Layer: 0
-  m_Name: Son
+  m_Name: SoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2237,7 +2237,7 @@ GameObject:
   - component: {fileID: 1959174342}
   - component: {fileID: 1959174341}
   m_Layer: 0
-  m_Name: GestionDesItems
+  m_Name: ItemManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

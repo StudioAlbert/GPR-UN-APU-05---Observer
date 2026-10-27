@@ -1,7 +1,7 @@
 using UnityEngine;
 
-// Ajouté après coup, sans ouvrir ni Item ni ItemManager : il lui suffit
-// d'écouter le même canal. C'est le critère de réussite de l'atelier.
+// Added afterwards, without opening Item or ItemManager: all it takes is
+// listening to the same channel. That is the workshop's success criterion.
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
 {

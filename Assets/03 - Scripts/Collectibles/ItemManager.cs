@@ -2,18 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Observateur des items, puis sujet à son tour — de trois façons différentes,
-// une par ligne du tableau « laquelle choisir ? ».
+// Observer of the items, then subject in its turn — in three different ways,
+// one per row of the "which one should I pick?" table.
 public class ItemManager : MonoBehaviour
 {
-    [Header("Les items à ramasser, posés à la main")]
+    [Header("The items to collect, wired by hand")]
     [SerializeField] private List<Item> items = new List<Item>();
 
-    [Header("3 · Canaux : les autres systèmes écoutent sans nous connaître")]
+    [Header("3 - Channels: other systems listen without knowing us")]
     [SerializeField] private IntEventChannelSO remainingChannel;
     [SerializeField] private VoidEventChannelSO itemCollectedChannel;
 
-    [Header("2 · UnityEvent : ce que l'Inspector câble")]
+    [Header("2 - UnityEvent: what the Inspector wires")]
     [SerializeField] private UnityEvent allCollected;
     [SerializeField] private UnityEvent reset;
 
@@ -21,7 +21,7 @@ public class ItemManager : MonoBehaviour
 
     void Awake() => remaining = items.Count;
 
-    // 1 · event Action : on s'abonne à chaque item, par une méthode nommée.
+    // 1 - event Action: we subscribe to every item, with a named method.
     void OnEnable()
     {
         foreach (Item item in items) item.Collected += OnItemCollected;
@@ -32,8 +32,8 @@ public class ItemManager : MonoBehaviour
         foreach (Item item in items) item.Collected -= OnItemCollected;
     }
 
-    // La première annonce part dans Start, pas dans OnEnable : à ce moment-là
-    // tout le monde s'est abonné, et personne ne rate le compte de départ.
+    // The first announcement goes out in Start, not in OnEnable: by then
+    // everyone has subscribed, and nobody misses the starting count.
     void Start() => remainingChannel.Raise(remaining);
 
     private void OnItemCollected(Item item)
@@ -46,8 +46,8 @@ public class ItemManager : MonoBehaviour
         if (remaining == 0) allCollected.Invoke();
     }
 
-    // Appelée directement par le bouton de l'UI : c'est le jeu qui pilote le jeu.
-    // Ce qu'elle rend public, c'est l'action — pas le compte, ni la liste.
+    // Called straight from the UI button: the game driving the game.
+    // What it exposes is the action — not the count, not the list.
     public void ResetItems()
     {
         foreach (Item item in items) item.Restore();

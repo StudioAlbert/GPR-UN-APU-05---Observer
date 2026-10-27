@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Le minimum pour courir et sauter : la séance porte sur l'Observer,
-// pas sur le contrôle du personnage.
+// The bare minimum to run and jump: the session is about the Observer,
+// not about character control.
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {

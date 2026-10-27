@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-// L'UI ne demande rien à personne : elle attend qu'on lui annonce le compte.
+// The UI asks nobody for anything: it waits to be told the count.
 [RequireComponent(typeof(UIDocument))]
 public class CounterLabel : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class CounterLabel : MonoBehaviour
 
     void OnEnable()
     {
-        label = GetComponent<UIDocument>().rootVisualElement.Q<Label>("compteur");
+        label = GetComponent<UIDocument>().rootVisualElement.Q<Label>("counter");
         remainingChannel.Raised += Show;
     }
 
@@ -19,6 +19,6 @@ public class CounterLabel : MonoBehaviour
 
     private void Show(int remaining)
     {
-        label.text = remaining == 0 ? "Tout ramassé !" : $"Gemmes restantes : {remaining}";
+        label.text = remaining == 0 ? "All collected!" : $"Gems left: {remaining}";
     }
 }

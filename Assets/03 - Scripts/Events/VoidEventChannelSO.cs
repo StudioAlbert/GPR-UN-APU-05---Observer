@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 
-// Même chose, pour une annonce qui ne transporte rien : EventChannelSO<void>
-// n'existe pas en C#, donc ce canal-là s'écrit à part.
+// Same thing, for an announcement that carries nothing: EventChannelSO<void>
+// does not exist in C#, so that channel has to be written on its own.
 [CreateAssetMenu(menuName = "Observer/Void Event Channel", fileName = "NewVoidEventChannel")]
 public class VoidEventChannelSO : ScriptableObject
 {

@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 
-// Le sujet. Il annonce qu'on l'a ramassé, et c'est tout ce qu'il fait :
-// il ne connaît ni le compteur, ni le son, ni le panneau de fin.
+// The subject. It announces that it has been picked up, and that is all it does:
+// it knows nothing of the counter, the sound, or the end panel.
 [RequireComponent(typeof(Collider2D))]
 public class Item : MonoBehaviour
 {
@@ -16,6 +16,6 @@ public class Item : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    // L'item se cache tout seul en se faisant ramasser ; il se remontre tout seul.
+    // The item hides itself when picked up, so it shows itself again on its own.
     public void Restore() => gameObject.SetActive(true);
 }

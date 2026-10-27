@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-// Tout passe par ici, et tout y est en dur : l'étiquette du compteur et le
-// panneau de fin sont des champs. Ajouter un système, c'est rouvrir ce fichier.
-// C'est exactement le problème que la séance démonte.
+// Everything goes through here, and everything in it is hard-wired: the counter
+// label and the end panel are fields. Adding a system means reopening this file.
+// That is exactly the problem the session takes apart.
 public class ItemManager : MonoBehaviour
 {
     [SerializeField] private List<Item> items = new List<Item>();
@@ -19,7 +19,7 @@ public class ItemManager : MonoBehaviour
 
     void Start()
     {
-        label = hud.rootVisualElement.Q<Label>("compteur");
+        label = hud.rootVisualElement.Q<Label>("counter");
         Show();
     }
 
@@ -42,6 +42,6 @@ public class ItemManager : MonoBehaviour
 
     private void Show()
     {
-        label.text = remaining == 0 ? "Tout ramassé !" : $"Gemmes restantes : {remaining}";
+        label.text = remaining == 0 ? "All collected!" : $"Gems left: {remaining}";
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
-// La version couplée : l'item connaît le gestionnaire, l'appelle par son nom,
-// et ne sait rien faire sans lui. C'est ce sens de dépendance qu'on inverse.
+// The coupled version: the item knows the manager, calls it by name, and can do
+// nothing without it. That direction of dependency is the one we invert.
 [RequireComponent(typeof(Collider2D))]
 public class Item : MonoBehaviour
 {

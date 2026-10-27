@@ -1,30 +1,30 @@
-/* Les deux cadres viennent du pack « Wood and Paper UI » de Treasure Hunters,
-   réassemblés en 9-slice : les coins gardent leur taille, le milieu s'étire. */
+/* Both frames come from the "Wood and Paper UI" pack of Treasure Hunters,
+   reassembled as 9-slice: the corners keep their size, the middle stretches. */
 
-.cadre-bois {
-    background-image: url("Panneau.png");
+.wood-frame {
+    background-image: url("Panel.png");
     -unity-slice-left: 32;
     -unity-slice-top: 32;
     -unity-slice-right: 32;
     -unity-slice-bottom: 32;
-    -unity-slice-scale: 2;
+    -unity-slice-scale: 2px;
 }
 
-/* --- Le bandeau du haut : le compteur à gauche, le bouton à droite --- */
+/* --- Top bar: the counter on the left, the button on the right --- */
 
-#barre {
+#bar {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
     padding: 24px 32px;
 }
 
-#cartouche {
+#counter-frame {
     flex-shrink: 0;
     padding: 22px 76px 30px 76px;
 }
 
-#compteur {
+#counter {
     flex-shrink: 0;
     white-space: nowrap;
     font-size: 30px;
@@ -32,15 +32,15 @@
     color: rgb(255, 243, 214);
 }
 
-#recommencer {
+#restart {
     flex-shrink: 0;
     white-space: nowrap;
-    background-image: url("Bouton.png");
+    background-image: url("Button.png");
     -unity-slice-left: 14;
     -unity-slice-top: 14;
     -unity-slice-right: 14;
     -unity-slice-bottom: 14;
-    -unity-slice-scale: 2;
+    -unity-slice-scale: 2px;
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
     margin: 0;
@@ -50,30 +50,30 @@
     color: rgb(255, 255, 255);
 }
 
-#recommencer:hover {
+#restart:hover {
     scale: 1.04 1.04;
 }
 
-/* --- Le panneau de fin : un cadre au centre, rien d'autre --- */
+/* --- End panel: one frame in the middle, nothing else --- */
 
-#voile {
+#overlay {
     flex-grow: 1;
     align-items: center;
     justify-content: center;
 }
 
-#panneau {
+#panel {
     padding: 52px 96px 64px 96px;
     align-items: center;
 }
 
-#titre {
+#title {
     font-size: 52px;
     -unity-font-style: bold;
     color: rgb(255, 243, 214);
 }
 
-#sous-titre {
+#subtitle {
     margin-top: 14px;
     font-size: 24px;
     color: rgb(255, 238, 208);

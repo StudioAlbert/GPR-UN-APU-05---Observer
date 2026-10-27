@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ui:UXML xmlns:ui="UnityEngine.UIElements">
-    <Style src="Jeu.uss" />
-    <ui:VisualElement name="barre" picking-mode="Ignore">
-        <ui:VisualElement name="cartouche" class="cadre-bois" picking-mode="Ignore">
-            <ui:Label name="compteur" text="Gemmes restantes : 5" picking-mode="Ignore" />
+    <Style src="Game.uss" />
+    <ui:VisualElement name="bar" picking-mode="Ignore">
+        <ui:VisualElement name="counter-frame" class="wood-frame" picking-mode="Ignore">
+            <ui:Label name="counter" text="Gems left: 5" picking-mode="Ignore" />
         </ui:VisualElement>
-        <ui:Button name="recommencer" text="Recommencer" />
+        <ui:Button name="restart" text="Restart" />
     </ui:VisualElement>
 </ui:UXML>

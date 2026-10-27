@@ -10,7 +10,7 @@ public class ItemManager : MonoBehaviour
     [SerializeField] private List<Item> items = new List<Item>();
 
     [SerializeField] private UIDocument hud;
-    [SerializeField] private GameObject panneauFin;
+    [SerializeField] private GameObject endPanel;
 
     private Label label;
     private int remaining;
@@ -20,15 +20,15 @@ public class ItemManager : MonoBehaviour
     void Start()
     {
         label = hud.rootVisualElement.Q<Label>("compteur");
-        Afficher();
+        Show();
     }
 
-    public void ItemRamasse(Item item)
+    public void ItemCollected(Item item)
     {
         remaining--;
-        Afficher();
+        Show();
 
-        if (remaining == 0) panneauFin.SetActive(true);
+        if (remaining == 0) endPanel.SetActive(true);
     }
 
     public void ResetItems()
@@ -36,11 +36,11 @@ public class ItemManager : MonoBehaviour
         foreach (Item item in items) item.Restore();
         remaining = items.Count;
 
-        panneauFin.SetActive(false);
-        Afficher();
+        endPanel.SetActive(false);
+        Show();
     }
 
-    private void Afficher()
+    private void Show()
     {
         label.text = remaining == 0 ? "Tout ramassé !" : $"Gemmes restantes : {remaining}";
     }

@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        manager.ItemRamasse(this);
+        manager.ItemCollected(this);
         gameObject.SetActive(false);
     }
 

@@ -12,7 +12,6 @@ public static class ChannelLog
     {
         Delegate[] subscribers = handler?.GetInvocationList() ?? Array.Empty<Delegate>();
         if (subscribers.Length == 0) return "nobody";
-
         return subscribers.Length + " : " + string.Join(", ", subscribers.Select(Name));
     }
 

@@ -15,4 +15,7 @@ public class Item : MonoBehaviour
         Collected?.Invoke(this);
         gameObject.SetActive(false);
     }
+
+    // L'item se cache tout seul en se faisant ramasser ; il se remontre tout seul.
+    public void Restore() => gameObject.SetActive(true);
 }

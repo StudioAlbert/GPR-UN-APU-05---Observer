@@ -2,11 +2,11 @@
 
 Companion de la séance *Observer, prévenir sans connaître* (SAE Institute Genève, GP-926).
 
-Un petit platformer : on ramasse cinq gemmes, et quand il n'en reste plus un panneau
+Un petit platformer pirate : on ramasse cinq gemmes, et quand il n'en reste plus un panneau
 s'affiche. Tout l'intérêt est dans **la façon dont la nouvelle circule** — trois mécanismes
 différents, un par étage, choisis chacun pour ce qu'il sait faire.
 
-| | Unity 6000.3.25f1 · URP 2D · Input System |
+| | Unity 6000.3.25f1 · URP 2D · Input System · UI Toolkit |
 |---|---|
 | Scène | `Assets/01 - Scenes/Collecte.unity` |
 | Commandes | flèches ou A/D, **Espace** pour sauter |
@@ -17,8 +17,11 @@ différents, un par étage, choisis chacun pour ce qu'il sait faire.
 
 ```
 Item ──event Action──▶ ItemManager ──VoidEventChannelSO──▶ SoundManager
-                            │        └─IntEventChannelSO──▶ CounterLabel
-                            └────────UnityEvent───────────▶ PanneauFin.SetActive
+                        │  │        └─IntEventChannelSO──▶ CounterLabel
+                        │  ├─ UnityEvent allCollected ───▶ PanneauFin.SetActive(true)
+                        │  └─ UnityEvent reset ──────────▶ PanneauFin.SetActive(false)
+                        ▲
+      ResetButton ──────┘  appel direct de ResetItems()
 ```
 
 1. **`event Action`** — `Item` annonce qu'on l'a ramassé. Il ne connaît personne ; c'est
@@ -31,6 +34,21 @@ Item ──event Action──▶ ItemManager ──VoidEventChannelSO──▶ S
 
 Les assets de canal sont dans `Assets/09 - Events/`.
 
+## Le bouton *Recommencer*, à contre-courant
+
+Il est là exprès : c'est le seul endroit du jeu où **on appelle au lieu d'annoncer**.
+
+`ResetButton` tient une référence à `ItemManager` et appelle `ResetItems()`. C'est légitime —
+l'UI du jeu a le droit de piloter le jeu, elle est faite pour ça. Le compteur, posé sur le
+**même objet**, n'a lui aucune raison de connaître `ItemManager` : il écoute un canal.
+
+Les deux cas sur un seul écran, à trois lignes l'un de l'autre. La question à poser en classe
+n'est pas « lequel est bien » mais « pourquoi pas le même partout ».
+
+Côté `ItemManager`, `ResetItems()` fait les trois choses dans l'ordre : rendre les gemmes,
+refermer le panneau par le `UnityEvent` `reset`, puis republier le compte sur le canal. Le
+compteur se remet à jour sans qu'on lui ait parlé.
+
 ## Les fichiers qui comptent
 
 | Fichier | Rôle |
@@ -41,27 +59,35 @@ Les assets de canal sont dans `Assets/09 - Events/`.
 | `03 - Scripts/Events/IntEventChannelSO.cs` · `VoidEventChannelSO.cs` | un type par forme d'annonce |
 | `03 - Scripts/Audio/SoundManager.cs` | ajouté sans ouvrir `Item` ni `ItemManager` |
 | `03 - Scripts/UI/CounterLabel.cs` | l'UI attend qu'on lui annonce le compte |
+| `03 - Scripts/UI/ResetButton.cs` | le contre-exemple : il appelle, et c'est voulu |
 | `03 - Scripts/Player/PlayerController.cs` | courir et sauter, le strict minimum |
+| `06 - UI/Hud.uxml` · `Fin.uxml` · `Jeu.uss` | l'interface, en UI Toolkit |
 
-## Deux détails volontaires
+## Trois détails volontaires
 
 - **La première annonce part dans `Start`, pas dans `OnEnable`.** À ce moment-là tout le monde
   s'est abonné ; publier plus tôt ferait rater le compte de départ à la moitié des
   observateurs.
 - **`allCollected` ne pointe sur aucun script.** `UnityEvent` appelle directement
   `GameObject.SetActive` — c'est la démonstration de la ligne « qui câble : l'Inspector ».
+- **Le panneau de fin est un second `UIDocument`**, pas un élément du premier. C'est ce qui
+  permet de l'allumer et de l'éteindre par `SetActive`, donc sans écrire une ligne pour lui.
 
 ## Assets
 
 Dans `Assets/00 - Imports_Packs/` :
 
-- [Pixel Platformer](https://kenney.nl/assets/pixel-platformer) — [Kenney](https://kenney.nl), **CC0**.
-  Tuiles 18 px, personnages 24 px : ce que la scène utilise aujourd'hui.
-- [RPG Audio](https://kenney.nl/assets/rpg-audio) — Kenney, **CC0**. Le son de ramassage
-  (`handleCoins.ogg`).
 - [Treasure Hunters](https://pixelfrog-assets.itch.io/treasure-hunters) —
-  [Pixel Frog](https://pixelfrog-assets.itch.io). Pirates 32 px, décor d'île, UI
-  « Wood and Paper ». **Importé, pas encore branché** sur la scène.
+  [Pixel Frog](https://pixelfrog-assets.itch.io). **Ce que la scène montre** : le terrain, le
+  capitaine, les gemmes, le décor et les cadres de l'interface.
+- [RPG Audio](https://kenney.nl/assets/rpg-audio) — [Kenney](https://kenney.nl), **CC0**.
+  Le son de ramassage (`handleCoins.ogg`).
+- [Pixel Platformer](https://kenney.nl/assets/pixel-platformer) — Kenney, **CC0**. Le premier
+  montage de la scène ; plus utilisé depuis le passage à Treasure Hunters.
 
-Les textures Kenney sont importées en `Point`, sans compression, à **18 pixels par unité** :
-une tuile fait exactement une unité de monde.
+Les textures Treasure Hunters sont importées en `Point`, sans compression, à **32 pixels par
+unité** : une tuile de terrain fait exactement une unité de monde.
+
+Quatre sprites de `Assets/04 - Sprites/` et `Assets/06 - UI/` sont des **réassemblages** du
+pack : les tuiles de coin, de bord et de centre remises en une seule image 3×3, pour pouvoir
+les étirer en 9-slice à n'importe quelle taille.

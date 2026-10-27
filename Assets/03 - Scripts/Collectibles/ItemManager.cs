@@ -15,6 +15,7 @@ public class ItemManager : MonoBehaviour
 
     [Header("2 · UnityEvent : ce que l'Inspector câble")]
     [SerializeField] private UnityEvent allCollected;
+    [SerializeField] private UnityEvent reset;
 
     private int remaining;
 
@@ -43,5 +44,16 @@ public class ItemManager : MonoBehaviour
         remainingChannel.Raise(remaining);
 
         if (remaining == 0) allCollected.Invoke();
+    }
+
+    // Appelée directement par le bouton de l'UI : c'est le jeu qui pilote le jeu.
+    // Ce qu'elle rend public, c'est l'action — pas le compte, ni la liste.
+    public void ResetItems()
+    {
+        foreach (Item item in items) item.Restore();
+        remaining = items.Count;
+
+        reset.Invoke();
+        remainingChannel.Raise(remaining);
     }
 }

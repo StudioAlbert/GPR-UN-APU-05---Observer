@@ -34,6 +34,26 @@ Item ──event Action──▶ ItemManager ──VoidEventChannelSO──▶ S
 
 The channel assets live in `Assets/09 - Events/`.
 
+## Making a channel talk
+
+A channel you cannot see is a channel you cannot debug: nothing in the code says who is
+listening. Both channels carry a **Verbose** checkbox for that. Tick it on `GemsRemaining`,
+press play, pick a gem:
+
+```
+GemsRemaining = 5 -> 1 : HUD.Show
+GemCollected  -> 1 : SoundManager.PlayPickup
+GemsRemaining = 3 -> nobody        (HUD switched off mid-game)
+```
+
+Every line is one announcement: the asset, the value, and every subscriber by object and
+method. The list comes from `Raised.GetInvocationList()`, so a subscriber that was destroyed
+without unsubscribing shows up as `<destroyed>` instead of waiting to throw later — the ghost
+subscriber becomes something you can *see*. Clicking a line pings the channel asset in the
+Project window.
+
+Off by default: a verbose channel in a loop floods the console.
+
 ## The *Restart* button, against the grain
 
 It is there on purpose: it is the one place in the game where **we call instead of
@@ -59,6 +79,7 @@ counter updates without anyone having spoken to it.
 | `03 - Scripts/Collectibles/ItemManager.cs` | observer, then subject in three ways |
 | `03 - Scripts/Events/EventChannelSO.cs` | the generic channel |
 | `03 - Scripts/Events/IntEventChannelSO.cs` · `VoidEventChannelSO.cs` | one type per shape of announcement |
+| `03 - Scripts/Events/ChannelLog.cs` | what a verbose channel prints |
 | `03 - Scripts/Audio/SoundManager.cs` | added without opening `Item` or `ItemManager` |
 | `03 - Scripts/UI/CounterLabel.cs` | the UI waits to be told the count |
 | `03 - Scripts/UI/ResetButton.cs` | the counter-example: it calls, and that is intended |

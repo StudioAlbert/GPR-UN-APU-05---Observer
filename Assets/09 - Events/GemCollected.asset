@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952564c01d05c934dacb495828cdc9cd, type: 3}
   m_Name: GemCollected
   m_EditorClassIdentifier: Assembly-CSharp::VoidEventChannelSO
+  verbose: 0

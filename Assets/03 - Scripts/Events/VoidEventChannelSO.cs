@@ -6,7 +6,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Observer/Void Event Channel", fileName = "NewVoidEventChannel")]
 public class VoidEventChannelSO : ScriptableObject
 {
+    [Tooltip("Log every announcement and who is listening to it.")]
+    [SerializeField] private bool verbose;
+
     public event Action Raised;
 
-    public void Raise() => Raised?.Invoke();
+    public void Raise()
+    {
+        if (verbose) Debug.Log($"{name} -> {ChannelLog.Listeners(Raised)}", this);
+        Raised?.Invoke();
+    }
 }

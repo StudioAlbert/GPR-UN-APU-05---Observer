@@ -1,20 +1,27 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-// Version couplée : le gestionnaire connaît l'étiquette et le panneau de fin.
-// Chaque réaction qu'on voudra ajouter sera un champ de plus dans ce fichier.
+// Tout passe par ici, et tout y est en dur : l'étiquette du compteur et le
+// panneau de fin sont des champs. Ajouter un système, c'est rouvrir ce fichier.
+// C'est exactement le problème que la séance démonte.
 public class ItemManager : MonoBehaviour
 {
     [SerializeField] private List<Item> items = new List<Item>();
-    [SerializeField] private TMP_Text label;
+
+    [SerializeField] private UIDocument hud;
     [SerializeField] private GameObject panneauFin;
 
+    private Label label;
     private int remaining;
 
     void Awake() => remaining = items.Count;
 
-    void Start() => Afficher();
+    void Start()
+    {
+        label = hud.rootVisualElement.Q<Label>("compteur");
+        Afficher();
+    }
 
     public void ItemRamasse(Item item)
     {
@@ -22,6 +29,15 @@ public class ItemManager : MonoBehaviour
         Afficher();
 
         if (remaining == 0) panneauFin.SetActive(true);
+    }
+
+    public void ResetItems()
+    {
+        foreach (Item item in items) item.Restore();
+        remaining = items.Count;
+
+        panneauFin.SetActive(false);
+        Afficher();
     }
 
     private void Afficher()

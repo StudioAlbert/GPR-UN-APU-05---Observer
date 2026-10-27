@@ -1,7 +1,7 @@
 using UnityEngine;
 
-// Version couplée : l'item tient une référence sur le gestionnaire et l'appelle
-// lui-même. Ça marche, et c'est précisément ce qu'on va démonter.
+// La version couplée : l'item connaît le gestionnaire, l'appelle par son nom,
+// et ne sait rien faire sans lui. C'est ce sens de dépendance qu'on inverse.
 [RequireComponent(typeof(Collider2D))]
 public class Item : MonoBehaviour
 {
@@ -14,4 +14,6 @@ public class Item : MonoBehaviour
         manager.ItemRamasse(this);
         gameObject.SetActive(false);
     }
+
+    public void Restore() => gameObject.SetActive(true);
 }

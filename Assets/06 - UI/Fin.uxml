@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="Jeu.uss" />
+    <ui:VisualElement name="voile" picking-mode="Ignore">
+        <ui:VisualElement name="panneau" class="cadre-bois" picking-mode="Ignore">
+            <ui:Label name="titre" text="Trésor complet !" picking-mode="Ignore" />
+            <ui:Label name="sous-titre" text="Les cinq gemmes sont ramassées." picking-mode="Ignore" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

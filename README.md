@@ -53,10 +53,15 @@ Les assets de canal sont dans `Assets/09 - Events/`.
 
 ## Assets
 
-Deux packs de [Kenney](https://kenney.nl), **CC0**, dans `Assets/00 - Imports_Packs/` :
+Dans `Assets/00 - Imports_Packs/` :
 
-- [Pixel Platformer](https://kenney.nl/assets/pixel-platformer) — tuiles 18 px, personnages 24 px
-- [RPG Audio](https://kenney.nl/assets/rpg-audio) — le son de ramassage (`handleCoins.ogg`)
+- [Pixel Platformer](https://kenney.nl/assets/pixel-platformer) — [Kenney](https://kenney.nl), **CC0**.
+  Tuiles 18 px, personnages 24 px : ce que la scène utilise aujourd'hui.
+- [RPG Audio](https://kenney.nl/assets/rpg-audio) — Kenney, **CC0**. Le son de ramassage
+  (`handleCoins.ogg`).
+- [Treasure Hunters](https://pixelfrog-assets.itch.io/treasure-hunters) —
+  [Pixel Frog](https://pixelfrog-assets.itch.io). Pirates 32 px, décor d'île, UI
+  « Wood and Paper ». **Importé, pas encore branché** sur la scène.
 
-Les textures sont importées en `Point`, sans compression, à **18 pixels par unité** : une
-tuile fait exactement une unité de monde.
+Les textures Kenney sont importées en `Point`, sans compression, à **18 pixels par unité** :
+une tuile fait exactement une unité de monde.

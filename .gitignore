@@ -112,3 +112,10 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Jetbrains Rider / CLion project settings
+.idea/
+
+# macOS finder junk (arrive avec les packs zippes)
+.DS_Store
+._*
